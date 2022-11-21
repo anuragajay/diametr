@@ -385,7 +385,7 @@ pre {
 <script type="text/javascript" src="../js/hidebib.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,600,400italic,600italic,300,300italic' rel='stylesheet' type='text/css'>
     <head>
-        <title> Is Conditional Generative Modeling all you need for Decision-Making?</title>
+        <title> Distributionally Adaptive Meta Reinforcement Learning</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta property="og:description" content="Composing Ensembles of Pre-trained Models via Iterative Consensus"/>
         <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
@@ -402,17 +402,16 @@ pre {
 <div class="container">
     <div class="paper-title">
     <h1> 
-        Is Conditional Generative Modeling all you need for Decision-Making?
+        Distributionally Adaptive Meta Reinforcement Learning
     </div>
 
     <div id="authors">
         <center>
             <div class="author-row-new">
                 <a href="https://anuragajay.github.io/">Anurag Ajay*<sup>1,2</sup></a>,
-                <a href="https://yilundu.github.io/">Yilun Du*<sup>2</sup></a>,
-                <a href="https://scholar.google.com/citations?user=ynyPc1kAAAAJ&hl=en">Abhi Gupta*<sup>2</sup></a>,
-                <a href="https://scholar.google.com/citations?user=rRJ9wTJMUB8C&hl=en">Joshua B. Tenenbaum<sup>2</sup></a>,
-                <a href="http://people.csail.mit.edu/tommi/">Tommi Jaakkola<sup>2</sup></a>,
+                <a href="https://homes.cs.washington.edu/~abhgupta/">Abhishek Gupta*<sup>1,2</sup></a>,
+                <a href="https://dibyaghosh.com/">Dibya Ghosh<sup>3</sup></a>,
+                <a href="https://people.eecs.berkeley.edu/~svlevine/">Sergey Levine<sup>3</sup></a>,
                 <a href="https://people.csail.mit.edu/pulkitag/">Pulkit Agrawal<sup>1,2</sup></a>
             </div>
         </center>
@@ -420,19 +419,20 @@ pre {
         <div class="affiliations">
             <span><sup>1</sup> Improbable AI Lab</span>
             <span><sup>2</sup> MIT</span><br/>
+            <span><sup>3</sup> UC Berkeley</span><br/>
         </div>
 
         <br>*indicates equal contribution.
 
         <div class="affil-row">
-            <div class="venue text-center"><b>arXiv 2022 </b></div>
+            <div class="venue text-center"><b>NeurIPS 2022 </b></div>
         </div>
 
         </center>
 
         <div style="clear: both">
             <div class="paper-btn-parent">
-            <a class="paper-btn" href="https://openreview.net/pdf?id=sP1fo2K9DFG">
+            <a class="paper-btn" href="https://openreview.net/pdf?id=rOimdw0-sx9">
                 <span class="material-icons"> description </span> 
                  Paper
             </a>
@@ -465,19 +465,16 @@ pre {
     
     <section id="teaser-image">
         <center>
-<!--            <center><p><b>A unified framework for composing pre-trained models.</b></p></center>-->
-
             <figure>
-                <img  src=./materials/teaser.png class="figure-img img-fluid">
 <!--                <video width="650" loop autoplay muted>-->
 <!--                    <source src="materials/teaser-2.mp4" type="video/mp4">-->
 <!--                </video>-->
 
-<!--                <br><br>-->
-<!--                -->
-<!--                <video width="960" loop autoplay muted>-->
-<!--                    <source src="materials/all_results.mp4" type="video/mp4">-->
-<!--                </video>-->
+                <br><br>
+
+                <video width="640" loop autoplay muted>
+                    <source src="materials/diametr_teaser.mp4" type="video/mp4">
+                </video>
 
                 <!-- <br><br> -->
 
@@ -498,27 +495,27 @@ pre {
         <h2>Abstract</h2>
         <div class="flex-row">
             <p>
-                Recent improvements in conditional generative modeling have made it possible to generate high-quality images from language descriptions alone. We investigate whether these methods can directly address the problem of sequential decision-making. We view decision-making not through the lens of reinforcement learning (RL), but rather through conditional generative modeling. To our surprise, we find that our formulation leads to policies that can outperform existing offline RL approaches across standard benchmarks. By modeling a policy as a return-conditional diffusion model, we illustrate how we may circumvent the need for dynamic programming and subsequently eliminate many of the complexities that come with traditional offline RL. We further demonstrate the advantages of modeling policies as conditional diffusion models by considering two other conditioning variables: constraints and skills. Conditioning on a single constraint or skill during training leads to behaviors at test-time that can satisfy several constraints together or demonstrate a composition of skills. Our results illustrate that conditional generative modeling is a powerful tool for decision-making.
+                Meta-reinforcement learning algorithms provide a data-driven way to acquire policies that quickly adapt to many tasks with varying rewards or dynamics functions. However, learned meta-policies are often effective only on the exact task distribution on which they were trained and struggle in the presence of distribution shift of test-time rewards or transition dynamics. In this work, we develop a framework for meta-RL algorithms that are able to behave appropriately under test-time distribution shifts in the space of tasks. Our framework centers on an adaptive approach to distributional robustness that trains a population of meta-policies to be robust to varying levels of distribution shift. When evaluated on a potentially shifted test-time distribution of tasks, this allows us to choose the meta-policy with the most appropriate level of robustness, and use it to perform fast adaptation. We formally show how our framework allows for improved regret under distribution shift, and empirically show its efficacy on simulated robotics problems under a wide range of distribution shifts.
             </p>
         </div>
     </section>
     <section id="method"/>
         <hr>
-        <h2>Method</h2>
+        <h2>DiAMetR</h2>
 
             <br><br>
 
             <div class="mx-auto">
 <!--                <left><p>The proposed framework that composes a "generator" and an ensemble of "scorers" through iterative consensus enables zero-shot generalization across a variety of multimodal tasks.</p></left>-->
-                <center><img class="card-img-top" src="materials/plan.png" style="width:950px"></center>
+                <center><img class="card-img-top" src="materials/diametr_method.png" style="width:500px"></center>
             </div>
 
             <br><br><br>
 
-            <div class="mx-auto">
-<!--                <left><p>The proposed framework that composes a "generator" and an ensemble of "scorers" through iterative consensus enables zero-shot generalization across a variety of multimodal tasks.</p></left>-->
-                <center><img class="card-img-top" src="materials/algo.png" style="width:950px"></center>
-            </div>
+<!--            <div class="mx-auto">-->
+<!--&lt;!&ndash;                <left><p>The proposed framework that composes a "generator" and an ensemble of "scorers" through iterative consensus enables zero-shot generalization across a variety of multimodal tasks.</p></left>&ndash;&gt;-->
+<!--                <center><img class="card-img-top" src="materials/algo.png" style="width:950px"></center>-->
+<!--            </div>-->
             <!-- <div class="row">
                     <div class="column4">
                         <center><img class="card-img-top" src="materials/framework.png" style="width:400px"></center>
@@ -557,149 +554,48 @@ pre {
 
     <section id="results">
         <hr>
-        <h2>Results Overview</h2>
+        <h2>Evaluation Domain</h2>
             <br><br>
             <div class="mx-auto">
-                <center><img class="card-img-top" src="materials/barchart.png" style="width:950px"></center>
+                <center><img class="card-img-top" src="materials/eval_domain.png" style="width:720px"></center>
             </div>
+            <br><br>
         <hr>
 
-        <h2>Constraint Satisfaction</h2>
+        <h2>Resilience to test-task distribution shift</h2>
             <br><br>
             <div class="mx-auto">
-                <center><p><b>Combining Stacking Constraints</b></p></center>
-                <img class="card-img-top" src="materials/stack_1.gif" style="width:33%">
-                <img class="card-img-top" src="materials/stack_2.gif" style="width:33%">
-                <img class="card-img-top" src="materials/stack_3.gif" style="width:33%">
-            </div>
-            <div class="mx-auto">
-                <img class="card-img-top" src="materials/stack_caption.png" style="width:99%">
+                <center><img class="card-img-top" src="materials/diametr_results.png" style="width:720px"></center>
             </div>
             <br><br>
-            <div class="mx-auto">
-                <center><p><b>Combining Rearrangement Constraints</b></p></center>
-                <img class="card-img-top" src="materials/rearrange_1.gif" style="width:33%">
-                <img class="card-img-top" src="materials/rearrange_2.gif" style="width:33%">
-                <img class="card-img-top" src="materials/rearrange_3.gif" style="width:33%">
-            </div>
-            <div class="mx-auto">
-                <img class="card-img-top" src="materials/rearrange_caption.png" style="width:99%">
-            </div>
-            <br><br>
-            <div class="mx-auto">
-                <center><p><b>'NOT' constraints in Stacking and Rearrangement</b></p></center>
-                <center>
-                    <img class="card-img-top" src="materials/task_not_1.gif" style="width:33%">
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <img class="card-img-top" src="materials/task_not_2.gif" style="width:33%">
-                </center>
-            </div>
-            <div class="mx-auto">
-                <center>
-                <img class="card-img-top" src="materials/not_constraint_caption.png" style="width:85%">
-                    </center>
-            </div>
-            <br><br>
-            <div class="mx-auto">
-                <center><p><b>Infeasible constraints lead to incoherent behavior</b></p></center>
-                <center>
-                    <img class="card-img-top" src="materials/task_infeasible.gif" style="width:33%">
-                </center>
-            </div>
-            <div class="mx-auto">
-                <center>
-                <img class="card-img-top" src="materials/infeasible_caption.png" style="width:38%">
-                </center>
-            </div>
         <hr>
 
-        <h2>Skill Composition</h2>
+        <h2>Importance of inferring uncertainty set</h2>
             <br><br>
             <div class="mx-auto">
-                <center><p><b>Individual Quadruped Gaits</b></p></center>
-                <img class="card-img-top" src="materials/trott.gif" style="width:33%">
-                <img class="card-img-top" src="materials/pace.gif" style="width:33%">
-                <img class="card-img-top" src="materials/bound.gif" style="width:33%">
-            </div>
-            <div class="mx-auto">
-                <img class="card-img-top" src="materials/skill_caption.png" style="width:99%">
+                <center><img class="card-img-top" src="materials/diametr_results_2.png" style="width:720px"></center>
             </div>
             <br><br>
-            <div class="mx-auto">
-                <center><p><b>Composing Quadruped Gaits</b></p></center>
-                <img class="card-img-top" src="materials/trott_pace.gif" style="width:33%">
-                <img class="card-img-top" src="materials/bound_pace.gif" style="width:33%">
-                <img class="card-img-top" src="materials/trott_bound.gif" style="width:33%">
-            </div>
-            <div class="mx-auto">
-                <img class="card-img-top" src="materials/skill_compose_caption.png" style="width:99%">
-            </div>
-            <br><br>
-            <div class="mx-auto">
-                <center><p><b>Naive Skill Composition via sum of conditioning variables</b></p></center>
-                <img class="card-img-top" src="materials/trott_pace_cond.gif" style="width:33%">
-                <img class="card-img-top" src="materials/bound_pace_cond.gif" style="width:33%">
-                <img class="card-img-top" src="materials/trott_bound_cond.gif" style="width:33%">
-            </div>
-            <div class="mx-auto">
-                <img class="card-img-top" src="materials/skill_compose_caption.png" style="width:99%">
-            </div>
-            <br><br><br>
         <hr>
 
     </section>
 
 
     <section id="paper">
-        <h2>Team</h2>        
-        <div class="row">
-            <div class="column5">
-                <a href='https://anuragajay.github.io/'>
-                    <img src=./materials/people/aajay2.png class="figure-img img-fluid rounded-circle" height=200px width=200px>
-                </a>
-                <p class=profname>Anurag Ajay</p>
-                <p class=institution>MIT</p>
-            </div>
+        <h2>Bibtex</h2>
+        <div class="page-body"><pre id="ad6975be-3353-467d-ae48-6313d767ffa6" class="code"><code>
+            @inproceedings{
+                ajay2022distributionally,
+                title={Distributionally Adaptive Meta Reinforcement Learning},
+                author={Anurag Ajay and Abhishek Gupta and Dibya Ghosh and Sergey Levine and Pulkit Agrawal},
+                booktitle={Advances in Neural Information Processing Systems},
+                editor={Alice H. Oh and Alekh Agarwal and Danielle Belgrave and Kyunghyun Cho},
+                year={2022},
+                url={https://openreview.net/forum?id=rOimdw0-sx9}
+            }
+        </code></pre><p id="1a3aa306-c4b8-4872-8fb0-411495c73d55" class="">
+        </p></div>
 
-            <div class="column5">
-                <a href='https://yilundu.github.io/'>
-                    <img  src=./materials/people/yilun3.png class="figure-img img-fluid rounded-circle" height=200px width=200px>
-                </a>
-                <p class=profname> Yilun Du </p>
-                <p class=institution>MIT</p>
-            </div>
-
-            <div class="column5">
-                <a href='https://scholar.google.com/citations?user=ynyPc1kAAAAJ&hl=en'>
-                    <img  src=./materials/people/abhi2.png class="figure-img img-fluid rounded-circle" height=200px width=200px>
-                </a>
-                <p class=profname> Abhi Gupta </p>
-                <p class=institution>MIT</p>
-            </div>
-
-            <div class="column5">
-                <a href='https://scholar.google.com/citations?user=rRJ9wTJMUB8C&hl=en'>
-                    <img  src=./materials/people/josh2.jpg class="figure-img img-fluid rounded-circle" height=200px width=200px>
-                </a>
-                <p class=profname> Joshua Tenenbaum </p>
-                <p class=institution>MIT</p>
-            </div>
-
-            <div class="column5">
-                <a href='http://people.csail.mit.edu/tommi/'>
-                    <img  src=./materials/people/tommi2.png class="figure-img img-fluid rounded-circle" height=200px width=200px>
-                </a>
-                <p class=profname> Tommi Jaakkola </p>
-                <p class=institution>MIT</p>
-            </div>
-
-            <div class="column5">
-                <a href='http://people.csail.mit.edu/pulkit/'>
-                    <img  src=./materials/people/pulkit.jpeg class="figure-img img-fluid rounded-circle" height=200px width=200px>
-                </a>
-                <p class=profname> Pulkit Agrawal </p>
-                <p class=institution>MIT</p>
-            </div>
     </section>
    
 
